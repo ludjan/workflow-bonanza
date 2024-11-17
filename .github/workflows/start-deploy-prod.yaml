@@ -22,3 +22,9 @@ jobs:
     uses: ./.github/workflows/deploy-app-to-prod.yaml
     with: 
       artifact_name: artifact
+
+  deploy-documentation:
+    needs: [deploy-to-prod]
+    uses: ./.github/workflows/deploy-documentation.yaml
+    with:
+      artifact_name: artifact
