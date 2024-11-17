@@ -6,7 +6,7 @@ on:
 
 jobs: 
   build-and-test:
-    uses: ./.github/workflows/build-and-test.yaml
+    uses: ./.github/workflows/build-and-test-app.yaml
 
   deploy:
     needs: [build-and-test]
