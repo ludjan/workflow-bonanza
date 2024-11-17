@@ -19,7 +19,7 @@ jobs:
 
       - uses: actions/download-artifact@v4.1.8
         with:
-          name: build.zip
+          name: build
 
       - name: Run it somehow
         run: less artifact/built-file.txt
