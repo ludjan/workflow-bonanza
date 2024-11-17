@@ -5,14 +5,14 @@ on:
 
 jobs: 
   build-and-test:
-    uses: ./.github/workflows/util/build-and-test-app.yaml
+    uses: ./.github/workflows/build-and-test-app.yaml
     with:
       path_to_upload_as_artifact: build
       upload_name: build
 
   deploy-app-to-dev:
     needs: [build-and-test]
-    uses: ./.github/workflows/util/deploy-app-to-dev.yaml
+    uses: ./.github/workflows/deploy-app-to-dev.yaml
 
   completed:
     needs: deploy-app-to-dev
