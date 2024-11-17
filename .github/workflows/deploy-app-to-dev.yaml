@@ -8,7 +8,7 @@ on:
         type: string
       
 jobs: 
-  deploy-to-dev:
+  deploy:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v4.2.2
