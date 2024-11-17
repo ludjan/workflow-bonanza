@@ -1,11 +1,11 @@
-name: Build and test app
+name: Build, test, upload
 on:
   workflow_call:
     inputs:
-      # must supply to upload
-      path_to_upload_as_artifact: 
+      should_upload:
         required: false
-        type: string
+        type: boolean
+        default: false
       upload_name: 
         required: false
         type: string
@@ -16,22 +16,31 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Make build dir
+      - name: Create some files build dir
         run: |
           mkdir build
-          echo "built file" > build/built-file.txt
+
+          mkdir build/jars
+          echo "class" > build/jars/app.jar
+          
           mkdir build/docs
           echo "doc file" > build/docs/doc-file.txt
+          
+          mkdir build
+          echo "other file" > build/other-file.txt
 
       - name: Verify build dir
         run: |
           ls
           ls build
+          ls build/jar
           ls build/docs
 
       - uses: actions/upload-artifact@v4.4.3
-        if: inputs.path_to_upload_as_artifact != '' && inputs.upload_name != ''
+        if: inputs.should_upload
         with:
-          path: ${{ inputs.path_to_upload_as_artifact }}
           name: ${{ inputs.upload_name }}
+          path: |
+            build/jars/
+            build/docs/
           
