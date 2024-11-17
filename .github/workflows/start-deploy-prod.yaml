@@ -8,17 +8,16 @@ jobs:
   build-and-test:
     uses: ./.github/workflows/build-and-test.yaml
     with:
-      path_to_upload_as_artifact: build
-      upload_name: build
+      should_upload: true
 
   deploy-to-dev:
     needs: [build-and-test]
     uses: ./.github/workflows/deploy-app-to-dev.yaml
     with: 
-      artifact_name: build
+      artifact_name: artifact
 
   deploy-to-prod:
     needs: [deploy-to-dev]
     uses: ./.github/workflows/deploy-app-to-prod.yaml
     with: 
-      artifact_name: build
+      artifact_name: artifact
