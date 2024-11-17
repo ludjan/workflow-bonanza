@@ -6,19 +6,19 @@ on:
 
 jobs:
   build-and-test:
-    uses: ./.github/workflows/build-and-test.yaml
+    uses: ./.github/workflows/util/build-and-test.yaml
     with:
       path_to_upload_as_artifact: build
       upload_name: build
 
   deploy-to-dev:
     needs: [build-and-test]
-    uses: ./.github/workflows/deploy-app-to-dev.yaml
+    uses: ./.github/workflows/util/deploy-app-to-dev.yaml
     with: 
       artifact_name: build
 
   deploy-to-prod:
     needs: [deploy-to-dev]
-    uses: ./.github/workflows/deploy-app-to-prod.yaml
+    uses: ./.github/workflows/util/deploy-app-to-prod.yaml
     with: 
       artifact_name: build
