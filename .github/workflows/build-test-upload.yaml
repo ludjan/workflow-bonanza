@@ -35,8 +35,8 @@ jobs:
           echo "build dir"
           ls build
           
-          echo "jar dir"
-          ls build/jar
+          echo "jars dir"
+          ls build/jars
           
           echo "docs dir"
           ls build/docs
