@@ -18,7 +18,9 @@ jobs:
       
       - name: Make build dir
         run: |
+          mkdir build
           echo "built file" > build/built-file.txt
+          mkdir build/docs
           echo "doc file" > build/docs/doc-file.txt
 
       - name: Verify build dir
