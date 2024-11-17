@@ -10,20 +10,14 @@ jobs:
       path_to_upload_as_artifact: build
       upload_name: build
 
-  deploy:
+  deploy-app-to-dev:
     needs: [build-and-test]
+    uses: ./.github/workflows/deploy-app-to-dev.yaml
+
+  completed:
+    needs: deploy-app-to-dev
     runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v4.2.2
-
-      - uses: actions/download-artifact@v4.1.8
-        with:
-          name: build
-          path: build
-
-      - name: Run it somehow
-        run: less build/built-file.txt
-
+    steps:
       - run: echo "Completed!"
 
     
