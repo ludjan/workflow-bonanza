@@ -21,7 +21,7 @@ jobs:
       - run: |
           ls -la
 
-      - run: less artifact/build-file.txt
+      - run: less artifact/built-file.txt
 
       - run: echo "Completed!"
 
