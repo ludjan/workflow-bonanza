@@ -19,6 +19,7 @@ jobs:
       - name: Create some files build dir
         run: |
           mkdir build
+          echo "other file" > build/other-file.txt
 
           mkdir build/jars
           echo "class" > build/jars/app.jar
@@ -26,9 +27,6 @@ jobs:
           mkdir build/docs
           echo "doc file" > build/docs/doc-file.txt
           
-          mkdir build
-          echo "other file" > build/other-file.txt
-
       - name: Verify build dir
         run: |
           ls
