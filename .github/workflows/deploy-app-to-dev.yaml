@@ -17,6 +17,9 @@ jobs:
         with:
           name: ${{ inputs.artifact_name }}
 
+      - name: list some stuff
+        run: ls
+
       - name: Run it somehow
         run: less build/jars/app.jar
 
