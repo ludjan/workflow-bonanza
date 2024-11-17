@@ -17,11 +17,9 @@ jobs:
       - uses: actions/checkout@v4.2.2
 
       - uses: actions/download-artifact@v4.1.8
-        with: 
-          path: build
-          
 
-      - run: less build/built-file.txt
+      - name: Run it somehow
+        run: less artifact/built-file.txt
 
       - run: echo "Completed!"
 
