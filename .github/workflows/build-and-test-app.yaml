@@ -12,9 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - run: |
+      - name: Make build dir
+        run: |
           mkdir build
-          echo "built file" >> build/built-file.txt
+          echo "built file" > build/built-file.txt
+
+      - name: Verify build dir
+        run: |
+          ls -la
+          ls build -la
 
       - uses: actions/upload-artifact@v4.4.3
         if: inputs.upload_name != ''
