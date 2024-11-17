@@ -1,0 +1,9 @@
+name: Build and test on PR
+
+on: 
+  pull_request:
+    types: [created, synchronized, reopened]
+
+jobs:
+  build-and-test:
+    uses: ./.github/workflows/build-and-test.yaml
