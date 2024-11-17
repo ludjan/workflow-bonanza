@@ -9,6 +9,7 @@ jobs:
     uses: ./.github/workflows/build-test-upload.yaml
     with:
       should_upload: true
+      upload_name: artifact
 
   deploy-to-dev:
     needs: [build-and-test]
